@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts About Crows</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Start hidden for animation */
+            transform: translateY(-20px); /* Start slightly above */
+            animation: fadeInUp 0.5s forwards; /* Animation on load */
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s; /* Transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+
+        #factDisplay {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0; /* Start hidden for animation */
+            transition: opacity 0.5s; /* Transition for fade-in effect */
+        }
+
+        .show {
+            opacity: 1; /* Show when class is added */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Facts About Crows</h1>
+        <button id="factButton">Show a Fun Fact</button>
+        <p id="factDisplay"></p>
+    </div>
+    <script>
+        const funFacts = [
+            "Crows are highly intelligent birds and can solve complex problems.",
+            "They can recognize human faces and remember those who have wronged them.",
+            "Crows are known to use tools, such as sticks, to extract insects from tree bark.",
+            "They have a complex social structure and often live in family groups.",
+            "Crows can mimic sounds, including human speech and other animal calls.",
+            "They have a wide range of vocalizations, with different calls serving different purposes.",
+            "Crows can hold funerals for their dead, gathering around the deceased to investigate.",
+            "They are omnivorous and have a varied diet that includes fruits, nuts, insects, and small animals.",
+            "Crows can adapt to urban environments and are often seen in cities.",
+            "They are part of the Corvidae family, which also includes ravens, magpies, and jays."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * funFacts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            
+            // Fade out the current fact
+            factDisplay.classList.remove('show');
+            
+            // Wait for the fade-out to complete before changing the text
+            setTimeout(() => {
+                factDisplay.innerText = funFacts[randomIndex];
+                factDisplay.classList.add('show'); // Fade in the new fact
+            }, 500); // Match this duration with the CSS transition
+        });
+    </script>
+</body>
+</html>
