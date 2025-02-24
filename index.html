@@ -103,6 +103,10 @@
                 font-size: 18px;
             }
         }
+        .show {
+    opacity: 1; /* Show when class is added */
+}
+
     </style>
 </head>
 <body>
@@ -113,31 +117,32 @@
     </div>
     <script>
         const funFacts = [
-            "Crows are highly intelligent birds and can solve complex problems.",
-            "They can recognize human faces and remember those who have wronged them.",
-            "Crows are known to use tools, such as sticks, to extract insects from tree bark.",
-            "They have a complex social structure and often live in family groups.",
-            "Crows can mimic sounds, including human speech and other animal calls.",
-            "They have a wide range of vocalizations, with different calls serving different purposes.",
-            "Crows can hold funerals for their dead, gathering around the deceased to investigate.",
-            "They are omnivorous and have a varied diet that includes fruits, nuts, insects, and small animals.",
-            "Crows can adapt to urban environments and are often seen in cities.",
-            "They are part of the Corvidae family, which also includes ravens, magpies, and jays."
-        ];
+    "Crows are highly intelligent birds and can solve complex problems.",
+    "They can recognize human faces and remember those who have wronged them.",
+    "Crows are known to use tools, such as sticks, to extract insects from tree bark.",
+    "They have a complex social structure and often live in family groups.",
+    "Crows can mimic sounds, including human speech and other animal calls.",
+    "They have a wide range of vocalizations, with different calls serving different purposes.",
+    "Crows can hold funerals for their dead, gathering around the deceased to investigate.",
+    "They are omnivorous and have a varied diet that includes fruits, nuts, insects, and small animals.",
+    "Crows can adapt to urban environments and are often seen in cities.",
+    "They are part of the Corvidae family, which also includes ravens, magpies, and jays."
+];
 
-        document.getElementById('factButton').addEventListener('click', function() {
-            const randomIndex = Math.floor(Math.random() * funFacts.length);
-            const factDisplay = document.getElementById('factDisplay');
-            
-            // Fade out the current fact
-            factDisplay.classList.remove('show');
-            
-            // Wait for the fade-out to complete before changing the text
-            setTimeout(() => {
-                factDisplay.innerText = funFacts[randomIndex];
-                factDisplay.classList.add('show'); // Fade in the new fact
-            }, 500); // Match this duration with the CSS transition
-        });
+document.getElementById('factButton').addEventListener('click', function() {
+    const randomIndex = Math.floor(Math.random() * funFacts.length);
+    const factDisplay = document.getElementById('factDisplay');
+    
+    // Fade out the current fact
+    factDisplay.classList.remove('show');
+    
+    // Wait for the fade-out to complete before changing the text
+    setTimeout(() => {
+        factDisplay.innerText = funFacts[randomIndex];
+        factDisplay.classList.add('show'); // Fade in the new fact
+    }, 500); // Match this duration with the CSS transition
+});
+
     </script>
 </body>
 </html>
